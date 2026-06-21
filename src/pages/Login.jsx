@@ -117,9 +117,7 @@ export default function Login() {
             </Link>
           </div>
           
-          <div className="mt-6 text-center text-xs text-slate-500 border-t border-white/5 pt-6">
-            <p>Admin Login: admin@vibenow.com / admin</p>
-          </div>
+
         </div>
       </div>
     </div>
