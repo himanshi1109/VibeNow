@@ -29,10 +29,10 @@ function AnimatedBackground() {
       {/* Grid overlay */}
       <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.02)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.02)_1px,transparent_1px)] bg-[size:64px_64px] [mask-image:radial-gradient(ellipse_80%_80%_at_50%_0%,#000_70%,transparent_100%)]" />
       
-      {/* Animated Glowing Blobs */}
-      <div className="absolute top-0 left-1/4 w-96 h-96 bg-cream/10 rounded-full mix-blend-screen filter blur-[100px] animate-blob" />
-      <div className="absolute top-1/4 right-1/4 w-[30rem] h-[30rem] bg-carrot/10 rounded-full mix-blend-screen filter blur-[120px] animate-blob animate-blob-delay" />
-      <div className="absolute bottom-[-10%] left-1/3 w-80 h-80 bg-[#CCCCCC]/10 rounded-full mix-blend-screen filter blur-[100px] animate-float" />
+      {/* Animated Glowing Blobs - Hidden on mobile to prevent GPU crashes */}
+      <div className="hidden md:block absolute top-0 left-1/4 w-96 h-96 bg-cream/10 rounded-full mix-blend-screen filter blur-[100px] animate-blob" />
+      <div className="hidden md:block absolute top-1/4 right-1/4 w-[30rem] h-[30rem] bg-carrot/10 rounded-full mix-blend-screen filter blur-[120px] animate-blob animate-blob-delay" />
+      <div className="absolute bottom-[-10%] left-1/3 w-60 h-60 bg-[#CCCCCC]/10 rounded-full mix-blend-screen filter blur-[50px] md:blur-[100px] animate-float" />
     </div>
   );
 }
