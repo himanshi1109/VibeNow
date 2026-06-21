@@ -1,0 +1,139 @@
+@import "tailwindcss";
+
+@theme {
+  --font-syne: "Syne", sans-serif;
+  --font-space: "Space Grotesk", sans-serif;
+  --color-brand-dark: #0A0A0C;
+  --color-brand-nav: rgba(10, 10, 12, 0.85);
+  
+  /* Dark Luxury Theme Colors */
+  --color-bg-primary: #0A0A0C;
+  --color-bg-secondary: #111116;
+  --color-bg-card: #16161F;
+  --color-accent-primary: #FFFFFF;
+  --color-accent-secondary: #CCCCCC;
+  --color-text-primary: #F3F4F6;
+  --color-text-secondary: #9CA3AF;
+  --color-text-muted: #6B7280;
+  --color-live-badge: #EF4444;
+  --color-success-online: #10B981;
+
+  /* Compatibility mappings for other pages if needed */
+  --color-carrot: #333333;
+  --color-cream: #F3F4F6;
+  --color-neon-pink: #A3A3A3;
+  --color-neon-indigo: #FFFFFF;
+  --color-neon-purple: #D4D4D4;
+  --color-neon-teal: #E5E5E5;
+}
+
+@layer base {
+  body {
+    background-color: #0A0A0C;
+    color: #F3F4F6;
+    overflow-x: hidden;
+    font-family: 'Inter', 'Space Grotesk', sans-serif;
+  }
+  
+  /* Focus outlines override - NO blue outlines, no outline on mouse click */
+  *:focus {
+    outline: none !important;
+  }
+  *:focus-visible {
+    outline: 2px solid rgba(255, 255, 255, 0.5) !important;
+  }
+}
+
+/* ─── CUSTOM SCROLLBAR ─── */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #0A0908;
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+/* ─── ANIMATIONS & KEYFRAMES ─── */
+@keyframes float {
+  0%, 100% { transform: translateY(0) scale(1); }
+  50% { transform: translateY(-20px) scale(1.05); }
+}
+
+@keyframes pulse-neon {
+  0%, 100% { box-shadow: 0 0 10px rgba(255, 255, 255, 0.2), 0 0 20px rgba(255, 255, 255, 0.1); }
+  50% { box-shadow: 0 0 20px rgba(255, 255, 255, 0.5), 0 0 40px rgba(255, 255, 255, 0.3); }
+}
+
+@keyframes spin-slow {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+@keyframes marquee {
+  from { transform: translateX(0%); }
+  to { transform: translateX(-50%); }
+}
+
+@keyframes slide-up {
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fade-in {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes blob {
+  0%, 100% { border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%; }
+  50% { border-radius: 30% 60% 70% 40% / 50% 60% 30% 60%; }
+}
+
+/* ─── UTILITY CLASSES ─── */
+@utility animate-float { animation: float 6s ease-in-out infinite; }
+@utility animate-float-delayed { animation: float 6s ease-in-out 3s infinite; }
+@utility animate-pulse-neon { animation: pulse-neon 2s ease-in-out infinite; }
+@utility animate-spin-slow { animation: spin-slow 15s linear infinite; }
+@utility animate-marquee { animation: marquee 30s linear infinite; }
+@utility animate-slide-up { animation: slide-up 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards; }
+@utility animate-fade-in { animation: fade-in 0.8s ease forwards; }
+@utility animate-blob { animation: blob 8s ease-in-out infinite; }
+@utility animate-blob-delay { animation: blob 8s ease-in-out 4s infinite; }
+
+/* Stagger delays */
+@utility delay-100 { animation-delay: 100ms; opacity: 0; }
+@utility delay-200 { animation-delay: 200ms; opacity: 0; }
+@utility delay-300 { animation-delay: 300ms; opacity: 0; }
+@utility delay-400 { animation-delay: 400ms; opacity: 0; }
+@utility delay-500 { animation-delay: 500ms; opacity: 0; }
+
+/* Glasses & Borders */
+@utility glass-panel {
+  background: rgba(255, 255, 255, 0.03);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+@utility glass-card {
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.04) 0%, rgba(255, 255, 255, 0.01) 100%);
+  backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+}
+
+@utility glass-hover {
+  @apply hover:bg-white/10 hover:border-white/20 transition-all duration-300;
+}
+
+@utility text-gradient {
+  background: linear-gradient(to right, #FFFFFF, #CCCCCC);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
