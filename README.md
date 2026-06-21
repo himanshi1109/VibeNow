@@ -36,17 +36,19 @@ Make sure you have [Node.js](https://nodejs.org/) (v18 or newer recommended) ins
 
 1. Clone the repository and navigate into the project directory:
    ```bash
-   cd moodGo-frontend
+   cd VibeNow
    ```
 
-2. Install dependencies:
+2. Install dependencies for both frontend and backend:
    ```bash
    npm install
+   cd backend && npm install
+   cd ..
    ```
 
-3. Start the development server:
+3. Start the development server (runs both frontend and backend):
    ```bash
-   npm run dev
+   npm run dev:all
    ```
 
 4. Open your browser and visit `http://localhost:5173` (or the port specified by Vite).
@@ -54,6 +56,9 @@ Make sure you have [Node.js](https://nodejs.org/) (v18 or newer recommended) ins
 ## 📁 Project Structure
 
 ```
+backend/
+├── server/         # Express server, MongoDB models, routes, controllers
+├── uploads/        # Event image uploads
 src/
 ├── components/     # Reusable UI components (Nav, Sidebar, Cards, etc.)
 ├── pages/          # Main application pages (Home, Profile, Checkout, etc.)
@@ -67,7 +72,8 @@ VibeNow is built with a focus on **Rich Aesthetics**. It utilizes modern web des
 
 ## 📄 Scripts
 
-- `npm run dev` - Starts the development server.
-- `npm run build` - Builds the app for production.
+- `npm run dev:all` - Starts BOTH the frontend and backend servers concurrently.
+- `npm run dev` - Starts only the frontend Vite development server.
+- `npm run build` - Builds the frontend app for production.
 - `npm run preview` - Locally preview the production build.
 - `npm run lint` - Runs ESLint to catch syntax and style issues.
