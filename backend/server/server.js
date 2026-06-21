@@ -65,7 +65,7 @@ app.post("/api/chat", protect.forUser, giveAnswer)
 
 
 
-const buildPath = path.resolve(__dirname, '../client/dist');
+const buildPath = path.resolve(__dirname, '../../dist');
 
 // 5. Static File Serving & SPA Routing
 if (process.env.NODE_ENV === "production") {
